@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW2</title>
+</head>
+
+<body>
+
+    <div id="box"></div>
+
+    <script>
+        //zadacha 1
+        var arr=['COCO', 'Skatman', 'rumba','alert'];   
+    var lmax=arr[0].length;
+    var elarr="";
+    for(var i in arr)
+    {                      
+        if(arr[i].length>lmax){
+        lmax=arr[i].length;
+        elarr=arr[i];
+        }             
+    }
+    console.log(`${elarr}`);
+    arr.length=0;
+    for(var el of elarr){
+      arr.push(el);
+    }
+   console.log(arr);
+   //zadacha 2
+    var text=prompt("текст:");
+    var color=prompt("цвет текста:");
+    var FontSize=+prompt("размер шрифта:");
+    function marker(text,color,FontSize){
+            document.write(`<p id:"marker" style="color:${color}; font-size:${FontSize+'px'}; font-family: Comic Sans MS;">${text}</p>`);}
+    marker(text,color,FontSize);
+    //zadacha 3
+    var arr3=[];
+    arr3.push(prompt('путь к изображению:'));
+    while(true){
+        if(confirm('Еще нужно?'))
+            {
+                arr3.push(prompt('путь к изображению:'));           
+            }            
+        else      
+        break;
+    }    
+    placeImages(arr3);
+
+    function placeImages(arrayImages){
+        for (var el of arrayImages){
+            box.innerHTML+=`<div><img src="${el}""></div>`
+        }   
+    }
+    </script>
+</body>
+</html>
